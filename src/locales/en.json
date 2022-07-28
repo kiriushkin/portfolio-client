@@ -1,0 +1,25 @@
+{
+  "title": "Kiriushkin Dmitrii",
+  "header": {
+    "about": "About",
+    "portfolio": "Portfolio",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Hi, I'm some dude, some dude"
+  },
+  "portfolio": {
+    "title": "My portfolio",
+    "description": "Some delicious description coming..."
+  },
+  "experience": {
+    "title": "My experience"
+  },
+  "contact": {
+    "title": "Contact Me"
+  },
+  "work": {
+    "back": "To Portfolio"
+  }
+}

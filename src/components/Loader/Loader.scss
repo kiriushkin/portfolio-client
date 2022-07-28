@@ -1,0 +1,22 @@
+.loader {
+  &__container {
+    position: fixed;
+    z-index: -999;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0;
+    overflow: hidden;
+    background-color: var(--bg-color2);
+
+    transition: 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.is-loading {
+      opacity: 1;
+      z-index: 999;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+html {
+  font-size: 10px;
+}
+
+.app {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  html {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Кирюшкин Дмитрий",
+  "header": {
+    "about": "Обо мне",
+    "portfolio": "Портфолио",
+    "experience": "Опыт",
+    "contact": "Связаться"
+  },
+  "about": {
+    "title": "Обо мне"
+  },
+  "portfolio": {
+    "title": "Мое портфолио",
+    "description": "Очень приятные подробности в пути..."
+  },
+  "experience": {
+    "title": "Мой опыт"
+  },
+  "contact": {
+    "title": "Связаться со мной"
+  },
+  "work": {
+    "back": "В портфолио"
+  }
+}

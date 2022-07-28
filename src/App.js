@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home/Home.js';
+import Work from './components/Work/Work.js';
+import AppContext from './AppContext.js';
+import ruLocale from './locales/ru.json';
+import enLocale from './locales/en.json';
 
 function App() {
+  const [lang, setLang] = useState('eng');
+  const [locale, setLocale] = useState(enLocale);
+
+  useEffect(() => {
+    setLocale(lang === 'eng' ? enLocale : ruLocale);
+  }, [lang]);
+
+  useEffect(() => {
+    document.title = locale.title;
+  }, [locale]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider
+      value={{
+        locale,
+        lang,
+        setLang,
+      }}
+    >
+      <div className="app">
+        <Routes>
+          <Route path=":name" element={<Work />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 }
 
