@@ -1,6 +1,7 @@
 import './Home.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useScroll, useApi } from '../../hooks/index.js';
+import AppContext from '../../AppContext.js';
 import HomeContext from './HomeContext.js';
 import Header from './Header/Header.js';
 import About from './About/About.js';
@@ -14,12 +15,15 @@ const Home = () => {
   const scroll = useScroll();
   const [activeKey, setActiveKey] = useState('about');
   const [isLoading, setIsLoading] = useState(true);
+  const { locale } = useContext(AppContext);
 
   useEffect(() => {
     (async () => {
       await api.getWorks();
       setIsLoading(false);
     })();
+
+    document.title = locale.title;
   }, []);
 
   return (

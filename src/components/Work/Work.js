@@ -20,6 +20,10 @@ const Work = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (work) document.title = work.title;
+  }, [work]);
+
+  useEffect(() => {
     (async () => {
       const result = await getWork(name);
 
