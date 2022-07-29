@@ -35,10 +35,10 @@
     &:not(:last-child):before {
       content: '';
       position: absolute;
-      top: 20%;
+      top: 30%;
       left: -3rem;
-      width: 2px;
-      height: 100%;
+      width: 0.2rem;
+      height: 95%;
       background-color: var(--accent-color);
     }
 

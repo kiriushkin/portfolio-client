@@ -16,8 +16,8 @@
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: #222;
-    box-shadow: 0 0 15px 3px var(--bg-color2);
+    background-color: var(--bg-color3);
+    box-shadow: 0 0 15px 3px var(--bg-color);
     border-radius: 15px;
     overflow: hidden;
   }

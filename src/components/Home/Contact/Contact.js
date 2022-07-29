@@ -8,7 +8,12 @@ import HomeContext from '../HomeContext.js';
 
 const InputOverride = {
   Root: {
-    style: { borderRadius: '15px' },
+    style: {
+      borderTopLeft: '15px',
+      borderTopRight: '15px',
+      borderBottomRight: '15px',
+      borderBottomLeft: '15px',
+    },
   },
 };
 
@@ -28,9 +33,13 @@ const Contact = () => {
         <h2 className="home__section-title">{contact.title}</h2>
         <form className="contact__container" onSubmit={submitHandler}>
           <div className="contact__row">
-            <Input placeholder="Name" overrides={InputOverride} required />
             <Input
-              placeholder="Email"
+              placeholder={contact.name}
+              overrides={InputOverride}
+              required
+            />
+            <Input
+              placeholder={contact.email}
               overrides={InputOverride}
               required
               type="email"
@@ -38,19 +47,23 @@ const Contact = () => {
           </div>
 
           <div className="contact__row">
-            <Input placeholder="Subject" overrides={InputOverride} required />
-          </div>
-
-          <div className="contact__row">
-            <Textarea
-              placeholder="Message"
+            <Input
+              placeholder={contact.subject}
               overrides={InputOverride}
               required
             />
           </div>
 
           <div className="contact__row">
-            <Button>Send Message</Button>
+            <Textarea
+              placeholder={contact.message}
+              overrides={InputOverride}
+              required
+            />
+          </div>
+
+          <div className="contact__row">
+            <Button>{contact.sendMessage}</Button>
           </div>
         </form>
       </section>

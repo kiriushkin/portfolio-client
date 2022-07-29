@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Tabs, Tab } from 'baseui/tabs-motion';
 import AppContext from '../../../AppContext.js';
 import HomeContext from '../HomeContext.js';
+import logo from '../../../assets/images/logo.webp';
 
 const TabsOverride = {
   TabList: {
@@ -54,7 +55,7 @@ const Header = () => {
       </div>
       <div className={(isOpen ? 'mobile-open ' : '') + 'header__container'}>
         <div className="header__logo">
-          <img src="https://via.placeholder.com/250.jpg" alt="" />
+          <img src={logo} alt="" />
         </div>
         <Tabs
           orientation="vertical"

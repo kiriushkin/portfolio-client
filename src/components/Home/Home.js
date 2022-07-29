@@ -24,7 +24,12 @@ const Home = () => {
     })();
 
     document.title = locale.title;
+    document.head.querySelector('link').href = '/logo.ico';
   }, []);
+
+  useEffect(() => {
+    document.title = locale.title;
+  }, [locale]);
 
   return (
     <HomeContext.Provider

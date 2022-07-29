@@ -13,8 +13,44 @@
 
   &__photo {
     display: none;
+    position: relative;
+
     img {
-      width: 100%;
+      position: absolute;
+      top: -50vh;
+      left: 5vw;
+      width: 55vh;
+
+      mask-image: linear-gradient(to top, transparent 5%, black 40%);
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: -22vh;
+      left: 10vh;
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      z-index: -1;
+
+      height: 50vh;
+      width: 50vh;
+
+      border-top: 15px solid var(--accent-color);
+      border-left: 15px solid var(--accent-color);
+    }
+
+    &:after {
+      z-index: 1;
+
+      height: 50vh;
+      width: 50vh;
+
+      border-bottom: 15px solid var(--accent-color);
+      border-right: 15px solid var(--accent-color);
     }
   }
 }

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import AppContext from '../../../AppContext.js';
 import HomeContext from '../HomeContext.js';
+import me from '../../../assets/images/me.webp';
 
 const About = () => {
   const {
@@ -13,16 +14,18 @@ const About = () => {
   return (
     <>
       <section className="about about__wrapper temp-size" ref={aboutRef}>
-        <h2 className="home__section-title">{about.title}</h2>
+        <h2
+          className="home__section-title"
+          dangerouslySetInnerHTML={{ __html: about.title }}
+        ></h2>
 
         <div className="about__container ">
-          <div className="home__section-text about__description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-            voluptatum magni explicabo.
+          <div className="home__section-subtitle about__description">
+            {about.description}
           </div>
 
           <div className="about__photo">
-            <img src="https://via.placeholder.com/550" alt="" />
+            <img src={me} alt="" />
           </div>
         </div>
       </section>

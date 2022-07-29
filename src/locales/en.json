@@ -1,23 +1,48 @@
 {
   "title": "Kiriushkin Dmitrii",
   "header": {
-    "about": "About",
+    "about": "Hello",
     "portfolio": "Portfolio",
     "experience": "Experience",
     "contact": "Contact"
   },
   "about": {
-    "title": "Hi, I'm some dude, some dude"
+    "title": "Hi,<br/> I'm Dmitrii,",
+    "description": "I'm Web Developer"
   },
   "portfolio": {
     "title": "My portfolio",
     "description": "Some delicious description coming..."
   },
   "experience": {
-    "title": "My experience"
+    "title": "My experience",
+    "description": "I have a specialized secondary education. I graduated with a degree in programmer in 2019. At various intervals, I was interested in different areas of development, initially, I was engaged exclusively in frontend development. I was looking for a job as a frontend developer and  I got an internship in Mentalstack. There I decided to switch to backend development, and to my surprise, I liked the backend development much more. Unluckily, employment in Russia was suspended. So now I'm looking forward to new job opportunities.",
+    "steps": [
+      {
+        "title": "Volga Region College of Technology and Management (2014 - 2019)",
+        "description": "I graduated from the Volga Region College of Technology and Management with a degree in programmer in 2019."
+      },
+      {
+        "title": "Self-Study (2020 - 2021)",
+        "description": "At various intervals, I was interested in different areas of development, such as web development, game development. After some time, I decided to focus on web development. Initially, I was engaged exclusively in frontend development, I studied layout, and later react."
+      },
+      {
+        "title": "Mentalstack (2021 - 2022)",
+        "description": "I got an internship in Mentalstack. I decided to switch to backend development. At the end of the internship, I was supposed to get a full-time job there, but due to the situation in the world, employment in Russia was suspended."
+      },
+      {
+        "title": "2022 - Now",
+        "description": "Now I'm looking forward to new job opportunities."
+      }
+    ]
   },
   "contact": {
-    "title": "Contact Me"
+    "title": "Contact Me",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "sendMessage": "Send Message"
   },
   "work": {
     "back": "To Portfolio"

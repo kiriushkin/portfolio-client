@@ -8,16 +8,21 @@ import ruLocale from './locales/ru.json';
 import enLocale from './locales/en.json';
 
 function App() {
-  const [lang, setLang] = useState('eng');
+  const [lang, setLang] = useState('');
   const [locale, setLocale] = useState(enLocale);
 
   useEffect(() => {
-    setLocale(lang === 'eng' ? enLocale : ruLocale);
-  }, [lang]);
+    const cacheLang = window.localStorage.lang;
+
+    setLang(!!cacheLang ? cacheLang : 'eng');
+  }, []);
 
   useEffect(() => {
-    document.title = locale.title;
-  }, [locale]);
+    if (lang === '') return;
+
+    window.localStorage.lang = lang;
+    setLocale(lang === 'eng' ? enLocale : ruLocale);
+  }, [lang]);
 
   return (
     <AppContext.Provider

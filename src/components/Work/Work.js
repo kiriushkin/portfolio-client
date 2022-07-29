@@ -20,7 +20,10 @@ const Work = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (work) document.title = work.title;
+    if (work) {
+      document.title = work.title;
+      document.head.querySelector('link').href = work.liveLink + '/favicon.ico';
+    }
   }, [work]);
 
   useEffect(() => {

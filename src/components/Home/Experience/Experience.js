@@ -16,15 +16,12 @@ const Experience = () => {
         <h2 className="home__section-title">{experience.title}</h2>
         <div className="experience__wrapper">
           <div className="experience__container experience__description">
-            <div className="experience__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-              ipsum perferendis fugiat eum, excepturi quae recusandae neque rem?
-              Veritatis sed debitis placeat quam. Molestias, quam?
-            </div>
+            <div className="experience__text">{experience.description}</div>
 
             <div className="experience__badges">
               <Badge content="HTML" hierarchy="secondary" color="warning" />
               <Badge content="CSS" hierarchy="secondary" color="warning" />
+              <Badge content="SASS" hierarchy="secondary" color="warning" />
               <Badge
                 content="JavaScript"
                 hierarchy="secondary"
@@ -50,24 +47,14 @@ const Experience = () => {
           </div>
           <div className="experience__container experience__charts">
             <div className="experience__steps">
-              <div className="experience__step">
-                <div className="experience__step-title">
-                  Mentalstack (2021 - 2022)
+              {experience.steps.map((step, index) => (
+                <div className="experience__step" key={index}>
+                  <div className="experience__step-title">{step.title}</div>
+                  <div className="experience__step-description">
+                    {step.description}
+                  </div>
                 </div>
-                <div className="experience__step-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Asperiores sequi quisquam soluta exercitationem fuga expedita
-                  maiores praesentium unde velit quaerat.
-                </div>
-              </div>
-
-              <div className="experience__step">
-                <div className="experience__step-title">Now</div>
-                <div className="experience__step-description">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Fugit repellat beatae adipisci?
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
