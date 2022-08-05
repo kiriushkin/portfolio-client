@@ -6,6 +6,7 @@ import Work from './components/Work/Work.js';
 import AppContext from './AppContext.js';
 import ruLocale from './locales/ru.json';
 import enLocale from './locales/en.json';
+import Admin from './components/Admin/Admin.js';
 
 function App() {
   const [lang, setLang] = useState('');
@@ -34,6 +35,7 @@ function App() {
     >
       <div className="app">
         <Routes>
+          <Route path="admin" element={<Admin />} />
           <Route path=":name" element={<Work />} />
           <Route path="/" element={<Home />} />
         </Routes>

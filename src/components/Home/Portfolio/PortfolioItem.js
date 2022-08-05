@@ -1,11 +1,13 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from 'baseui/badge';
 import { Button } from 'baseui/button';
+import HomeContext from '../HomeContext.js';
 
 const PortfolioItem = ({ work }) => {
-  const navigate = useNavigate();
+  const { tags } = useContext(HomeContext);
 
-  // work.previewUrl ?? `https://via.placeholder.com/450.jpg/${work.color}`
+  const navigate = useNavigate();
 
   return (
     <div className="portfolio-item portfolio-item__wrapper">
@@ -20,18 +22,15 @@ const PortfolioItem = ({ work }) => {
       </div>
       <div className="portfolio-item__container portfolio-item__content">
         <div className="portfolio-item__title">{work.title}</div>
-        <div className="portfolio-item__description">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
-          aspernatur assumenda sequi quia excepturi, repellendus quis fugit
-          eligendi praesentium error.
-        </div>
+        <div className="portfolio-item__description">{work.description}</div>
 
         <div className="portfolio-item__badges">
-          <Badge shape="pill" content="Node" color="positive" />
-          <Badge shape="pill" content="Express" color="positive" />
-          <Badge shape="pill" content="PostgreSQL" color="positive" />
-          <Badge shape="pill" content="React" color="negative" />
-          <Badge shape="pill" content="Redux" color="negative" />
+          {work.tags.map((id) => {
+            const { name, color } =
+              tags[tags.findIndex((tag) => tag.id === id)];
+
+            return <Badge key={id} shape="pill" content={name} color={color} />;
+          })}
         </div>
 
         <div className="portfolio-item__visit">

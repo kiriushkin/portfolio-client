@@ -14,7 +14,7 @@ const Portfolio = () => {
   return (
     <section className="portfolio temp-size" ref={portfolioRef}>
       <h2 className="home__section-title">{portfolio.title}</h2>
-      <div className="home__section-text">{portfolio.description}</div>
+      {/* <div className="home__section-text">{portfolio.description}</div> */}
       <div className="portfolio__container">
         {works.map((work) => (
           <PortfolioItem key={work.id} work={work} />

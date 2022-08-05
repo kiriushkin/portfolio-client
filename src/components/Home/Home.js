@@ -19,7 +19,8 @@ const Home = () => {
 
   useEffect(() => {
     (async () => {
-      await api.getWorks();
+      const responses = [api.getWorks(), api.getTags()];
+      await Promise.all(responses);
       setIsLoading(false);
     })();
 
