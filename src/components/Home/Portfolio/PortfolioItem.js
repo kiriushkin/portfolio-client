@@ -44,14 +44,14 @@ const PortfolioItem = ({ work }) => {
         </div>
 
         <div className="portfolio-item__links">
-          {!work.githubLink ? (
+          {work.githubLink ? (
             <a href={work.githubLink}>
               <i className="fa-brands fa-github"></i>
             </a>
           ) : (
             ''
           )}
-          {!work.apiLink ? (
+          {work.apiLink ? (
             <a href={work.apiLink}>
               <i className="fa-solid fa-code"></i>
             </a>
