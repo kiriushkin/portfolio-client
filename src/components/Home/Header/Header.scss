@@ -7,14 +7,19 @@
     height: 100vh;
     width: 100vw;
 
+    padding: 2rem 0;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    // justify-content: space-around;
+    gap: 2rem;
 
     opacity: 0;
     background-color: var(--bg-color2);
 
     transition: 0.5s;
+
+    will-change: opacity, z-index;
 
     &.mobile-open {
       z-index: 99;
@@ -45,13 +50,16 @@
   }
 
   &__logo {
+    flex-grow: 1;
     align-self: center;
     height: 150px;
     border-radius: 25px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 
     img {
-      height: 100%;
+      // height: 100%;
       width: 100%;
     }
   }
@@ -104,6 +112,7 @@
   }
 
   &__links {
+    flex-grow: 1;
     align-self: center;
     display: flex;
     gap: 20px;

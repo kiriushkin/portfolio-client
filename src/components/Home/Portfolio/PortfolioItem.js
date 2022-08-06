@@ -26,10 +26,16 @@ const PortfolioItem = ({ work }) => {
 
         <div className="portfolio-item__badges">
           {work.tags.map((id) => {
-            const { name, color } =
-              tags[tags.findIndex((tag) => tag.id === id)];
+            const tag = tags[tags.findIndex((tag) => tag.id === id)];
 
-            return <Badge key={id} shape="pill" content={name} color={color} />;
+            return (
+              <Badge
+                key={id}
+                shape="pill"
+                content={tag?.name}
+                color={tag?.color}
+              />
+            );
           })}
         </div>
 

@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
+import config from '../config/config.js';
 
-// const API_URL =
-//   process.env.NODE_ENV === 'production'
-//     ? 'https://api.kiriushkin.pro/portfolio/api/'
-//     : 'http://localhost:5000/api/';
-const API_URL = 'https://api.kiriushkin.pro/portfolio/api/';
+const { API_URL } = config;
 
 const useApi = () => {
   const [works, setWorks] = useState([]);
@@ -33,7 +30,12 @@ const useApi = () => {
 
   const addWork = async (work) => {
     try {
-      const { data } = await axios.post(API_URL + 'works', { ...work });
+      const token = window.localStorage.token;
+      const { data } = await axios.post(
+        API_URL + 'works',
+        { ...work },
+        { headers: { Authorization: token } }
+      );
 
       setWorks([...works, data]);
     } catch (err) {
@@ -43,7 +45,12 @@ const useApi = () => {
 
   const updateWork = async (work) => {
     try {
-      const { data } = await axios.put(API_URL + 'works', { ...work });
+      const token = window.localStorage.token;
+      const { data } = await axios.put(
+        API_URL + 'works',
+        { ...work },
+        { headers: { Authorization: token } }
+      );
 
       const newWorks = [...works];
       newWorks[newWorks.findIndex((item) => item.id === data.id)] = data;
@@ -56,7 +63,11 @@ const useApi = () => {
 
   const deleteWork = async (id) => {
     try {
-      await axios.delete(API_URL + 'works', { data: { id } });
+      const token = window.localStorage.token;
+      await axios.delete(API_URL + 'works', {
+        data: { id },
+        headers: { Authorization: token },
+      });
 
       setWorks([...works.filter((item) => item.id !== id)]);
     } catch (err) {
@@ -76,7 +87,12 @@ const useApi = () => {
 
   const addTag = async (tag) => {
     try {
-      const { data } = await axios.post(API_URL + 'tags', { ...tag });
+      const token = window.localStorage.token;
+      const { data } = await axios.post(
+        API_URL + 'tags',
+        { ...tag },
+        { headers: { Authorization: token } }
+      );
 
       setTags([...tags, data]);
     } catch (err) {
@@ -86,7 +102,12 @@ const useApi = () => {
 
   const updateTag = async (tag) => {
     try {
-      const { data } = await axios.put(API_URL + 'tags', { ...tag });
+      const token = window.localStorage.token;
+      const { data } = await axios.put(
+        API_URL + 'tags',
+        { ...tag },
+        { headers: { Authorization: token } }
+      );
 
       const newTags = [...tags];
       newTags[newTags.findIndex((item) => item.id === data.id)] = data;
@@ -99,7 +120,11 @@ const useApi = () => {
 
   const deleteTag = async (id) => {
     try {
-      await axios.delete(API_URL + 'tags', { data: { id } });
+      const token = window.localStorage.token;
+      await axios.delete(API_URL + 'tags', {
+        data: { id },
+        headers: { Authorization: token },
+      });
 
       setTags([...tags.filter((item) => item.id !== id)]);
     } catch (err) {
