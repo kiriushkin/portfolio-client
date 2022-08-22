@@ -2,12 +2,21 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from 'baseui/badge';
 import { Button } from 'baseui/button';
+import AppContext from '../../../AppContext.js';
 import HomeContext from '../HomeContext.js';
 
 const PortfolioItem = ({ work }) => {
+  const {
+    locale: { portfolio },
+  } = useContext(AppContext);
   const { tags } = useContext(HomeContext);
 
   const navigate = useNavigate();
+
+  const redirect = (path) => {
+    document.body.scrollIntoView({ behavior: 'smooth' });
+    navigate(path);
+  };
 
   return (
     <div className="portfolio-item portfolio-item__wrapper">
@@ -43,9 +52,9 @@ const PortfolioItem = ({ work }) => {
           <Button
             kind="secondary"
             shape="pill"
-            onClick={() => navigate(`/${work.name}`)}
+            onClick={() => redirect(`/${work.name}`)}
           >
-            Visit Website
+            {portfolio.visit}
           </Button>
         </div>
 

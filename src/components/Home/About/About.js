@@ -14,18 +14,21 @@ const About = () => {
   return (
     <>
       <section className="about about__wrapper temp-size" ref={aboutRef}>
-        <h2
-          className="home__section-title"
-          dangerouslySetInnerHTML={{ __html: about.title }}
-        ></h2>
-
-        <div className="about__container ">
-          <div className="home__section-subtitle about__description">
-            {about.description}
+        <div className="about__container">
+          <div>
+            <h2
+              className="home__section-title"
+              dangerouslySetInnerHTML={{ __html: about.title }}
+            ></h2>
+            <div className="home__section-subtitle about__description">
+              {about.description}
+            </div>
           </div>
 
-          <div className="about__photo">
-            <img src={me} alt="" />
+          <div>
+            <div className="about__photo">
+              <img src={me} alt="" />
+            </div>
           </div>
         </div>
       </section>

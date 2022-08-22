@@ -1,6 +1,7 @@
 import './Home.scss';
 import { useState, useEffect, useContext } from 'react';
 import { useScroll, useApi } from '../../hooks/index.js';
+import { ToasterContainer, PLACEMENT } from 'baseui/toast';
 import AppContext from '../../AppContext.js';
 import HomeContext from './HomeContext.js';
 import Header from './Header/Header.js';
@@ -36,16 +37,21 @@ const Home = () => {
     <HomeContext.Provider
       value={{ ...scroll, ...api, activeKey, setActiveKey }}
     >
-      <Loader isLoading={isLoading} />
-      <Header />
-      <main className={(isLoading ? 'loading ' : '') + 'home home__wrapper'}>
-        <div className="home__container">
-          <About />
-          <Portfolio />
-          <Experience />
-          <Contact />
-        </div>
-      </main>
+      <ToasterContainer
+        placement={PLACEMENT.bottomRight}
+        overrides={{ Root: { style: { zIndex: 999 } } }}
+      >
+        <Loader isLoading={isLoading} />
+        <Header />
+        <main className={(isLoading ? 'loading ' : '') + 'home home__wrapper'}>
+          <div className="home__container">
+            <About />
+            <Portfolio />
+            <Experience />
+            <Contact />
+          </div>
+        </main>
+      </ToasterContainer>
     </HomeContext.Provider>
   );
 };

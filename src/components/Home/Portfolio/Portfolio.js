@@ -1,6 +1,7 @@
 import './Portfolio.scss';
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import { Button } from 'baseui/button';
 import AppContext from '../../../AppContext.js';
 import HomeContext from '../HomeContext.js';
 import PortfolioItem from './PortfolioItem.js';
@@ -11,15 +12,30 @@ const Portfolio = () => {
   } = useContext(AppContext);
   const { works, portfolioRef } = useContext(HomeContext);
 
+  const [worksAmount, setWorksAmount] = useState(2);
+
   return (
     <section className="portfolio temp-size" ref={portfolioRef}>
-      <h2 className="home__section-title">{portfolio.title}</h2>
-      {/* <div className="home__section-text">{portfolio.description}</div> */}
-      <div className="portfolio__container">
-        {works.map((work) => (
-          <PortfolioItem key={work.id} work={work} />
-        ))}
-      </div>
+      <AnimationOnScroll animateIn="animate__fadeInLeft" animateOnce>
+        <h2 className="home__section-title">{portfolio.title}</h2>
+      </AnimationOnScroll>
+      <AnimationOnScroll animateIn="animate__fadeIn" animateOnce>
+        <div className="portfolio__container">
+          {works.slice(0, worksAmount).map((work) => (
+            <PortfolioItem key={work.id} work={work} />
+          ))}
+          {works.length > worksAmount ? (
+            <Button
+              shape="pill"
+              onClick={() => setWorksAmount(worksAmount + 2)}
+            >
+              {portfolio.more}
+            </Button>
+          ) : (
+            ''
+          )}
+        </div>
+      </AnimationOnScroll>
     </section>
   );
 };

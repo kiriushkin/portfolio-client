@@ -48,7 +48,9 @@ const Work = () => {
           kind="tertiary"
           colors={{ color: 'white', backgroundColor: 'transparent' }}
           startEnhancer={() => <ArrowLeft size={32} />}
-          onClick={() => navigate('/')}
+          onClick={() => {
+            navigate('/');
+          }}
         >
           {workLocale.back}
         </Button>

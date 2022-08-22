@@ -19,6 +19,8 @@
     align-items: center;
     gap: 1rem;
 
+    backdrop-filter: blur(10px);
+
     &-username {
       font-size: calc(10px + 0.5rem);
     }
@@ -119,10 +121,6 @@
 }
 
 div[data-baseweb='modal'] form > div:first-child {
-  text-transform: capitalize;
-}
-
-button[data-baseweb='button'] {
   text-transform: capitalize;
 }
 

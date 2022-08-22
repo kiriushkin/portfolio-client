@@ -41,6 +41,10 @@ const Header = () => {
   };
 
   useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
+  useEffect(() => {
     if (!isScrolling) setActiveKey(scrollKey);
   }, [scrollKey]);
 

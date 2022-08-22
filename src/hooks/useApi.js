@@ -132,6 +132,14 @@ const useApi = () => {
     }
   };
 
+  const sendMessage = async (data) => {
+    try {
+      await axios.post(API_URL + 'bot', data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
     works,
     getWork,
@@ -144,6 +152,7 @@ const useApi = () => {
     addTag,
     updateTag,
     deleteTag,
+    sendMessage,
   };
 };
 
